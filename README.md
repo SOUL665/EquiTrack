@@ -34,3 +34,7 @@ To run this project locally for evaluation or development, follow these steps:
 ```bash
 git clone [https://github.com/SOUL665/equitrack-backend.git](https://github.com/SOUL665/equitrack-backend.git)
 cd equitrack-backend
+
+**Author:** Aakash Yadav
+**GitHub Profile:** [@SOUL665](https://github.com/SOUL665)  
+**Repository Link:** [EquiTrack on GitHub](https://github.com/SOUL665/EquiTrack)
