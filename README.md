@@ -43,4 +43,6 @@ GitHub Profile: @SOUL665
 
 Repository Link: https://github.com/SOUL665/EquiTrack
 
+Lastest Update : 25/07/26
+
 
