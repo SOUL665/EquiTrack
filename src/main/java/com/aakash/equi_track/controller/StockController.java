@@ -17,26 +17,33 @@ public class StockController {
         this.stockService = stockService;
     }
 
+    // Fetch and save stock details
     @GetMapping("/{ticker}")
-    public ResponseEntity<Stock> trackStock(@PathVariable String ticker) {
-        Stock stock = stockService.fetchAndSaveStock(ticker);
+    public ResponseEntity<Stock> getStockDetails(@PathVariable String ticker) {
+        Stock stock = stockService.fetchAndSaveStock(ticker.toUpperCase());
         return ResponseEntity.ok(stock);
     }
 
+    // Get all tracked stocks
     @GetMapping
-    public List<Stock> getAllStocks() {
-        return stockService.getAllStocks();
+    public ResponseEntity<List<Stock>> getAllStocks() {
+        List<Stock> stocks = stockService.getAllStocks();
+        return ResponseEntity.ok(stocks);
     }
 
+    // Remove stock from tracking
     @DeleteMapping("/{ticker}")
-    public ResponseEntity<String> deleteStock(@PathVariable String ticker) {
-        stockService.deleteStock(ticker);
-        return ResponseEntity.ok("Stock " + ticker.toUpperCase() + " removed from tracking.");
+    public ResponseEntity<String> removeStock(@PathVariable String ticker) {
+        stockService.deleteStock(ticker.toUpperCase());
+        return ResponseEntity.ok(
+                "Stock " + ticker.toUpperCase() + " removed from tracking."
+        );
     }
 
+    // Refresh stock information
     @PutMapping("/{ticker}/refresh")
-    public ResponseEntity<Stock> refreshStock(@PathVariable String ticker) {
-        Stock updatedStock = stockService.fetchAndSaveStock(ticker);
+    public ResponseEntity<Stock> refreshStockData(@PathVariable String ticker) {
+        Stock updatedStock = stockService.fetchAndSaveStock(ticker.toUpperCase());
         return ResponseEntity.ok(updatedStock);
     }
 }
